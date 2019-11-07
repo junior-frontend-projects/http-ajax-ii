@@ -27,7 +27,14 @@ export default function UserUpdate(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(user)
+    // console.log(user)
+    api().put(`/users/${user.id}`, user)
+    .then (res => {
+      props.history.push("/users")
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
   return (
     <div>
